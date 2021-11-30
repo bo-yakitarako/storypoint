@@ -1,7 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "start": "snowpack dev",
+    "docker": "cd docker; docker-compose up --build -d; yarn web",
+    "web": "docker exec -it node bash",
+    "docker-stop": "cd docker; docker-compose down",
+    "dev": "bash ./dev.sh",
     "build": "snowpack build",
     "test": "web-test-runner \"src/**/*.test.tsx\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",

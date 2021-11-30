@@ -1,0 +1,21 @@
+version: '2'
+services:
+  node:
+    build: ./node
+    volumes:
+      - '../:/usr/app'
+    ports:
+      - '3000:3000'
+    # command: sh -c "yarn dev"
+    stdin_open: true
+    environment:
+      CHOKIDAR_USEPOLLING: 1
+    container_name: node
+  nginx:
+    build: ./nginx
+    ports:
+      - '80:80'
+      - '443:443'
+    links:
+      - node
+    container_name: nginx

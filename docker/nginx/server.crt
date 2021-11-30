@@ -1,0 +1,90 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 1 (0x1)
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=JP, ST=Chiba, L=Chiba, O=bo inc., OU=Oreore Gr., CN=bo-ca
+        Validity
+            Not Before: Nov 30 14:38:03 2021 GMT
+            Not After : Feb 28 14:38:03 2024 GMT
+        Subject: C=JP, ST=Chiba, O=bo inc., OU=Oreore Gr., CN=bo-dev
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:ad:7d:78:d6:03:7d:2d:ce:0e:2c:a7:59:30:5c:
+                    9b:fe:91:f6:1b:76:41:c0:31:1d:1d:46:14:58:eb:
+                    9a:bb:0c:73:ec:1a:66:58:8e:cf:3d:36:4e:d3:e5:
+                    f4:a1:b2:71:84:07:1b:14:2c:91:aa:74:e9:28:dc:
+                    1e:ed:9c:04:c5:3e:f8:e7:fa:ab:e4:23:0d:9f:08:
+                    44:25:49:44:bc:f2:2d:e9:b1:97:5c:da:f2:23:51:
+                    e1:30:a6:cd:b2:6a:32:86:4b:ee:bd:a6:a7:1d:5e:
+                    96:47:36:60:a7:c0:bf:7e:34:19:47:79:70:ec:32:
+                    bb:48:35:ef:f3:16:5e:f4:bd:c8:31:77:0a:c6:4c:
+                    42:25:94:10:bf:b8:33:b4:5b:fc:d5:65:d5:06:87:
+                    cc:2a:44:4f:94:bc:35:ce:95:da:62:59:5b:fd:1c:
+                    ab:b3:ee:28:2a:62:4c:65:e8:4a:df:1c:f5:96:65:
+                    8a:ac:a0:78:98:2c:c7:65:29:22:ae:a3:87:4f:f8:
+                    b6:03:74:dd:94:f9:b4:11:32:ff:12:36:af:7a:f9:
+                    f9:f1:96:0b:fa:0c:88:e9:31:dc:e5:69:6f:d0:f9:
+                    ad:cb:ae:ab:68:d0:2b:17:62:92:eb:b7:2a:20:18:
+                    8d:1b:bd:b6:22:cd:17:17:39:2e:49:97:74:c2:8c:
+                    23:3f
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Comment: 
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier: 
+                F0:D0:98:E3:7B:96:1A:F9:5C:74:0F:17:E8:9C:56:35:13:F6:BE:E0
+            X509v3 Authority Key Identifier: 
+                DirName:/C=JP/ST=Chiba/L=Chiba/O=bo inc./OU=Oreore Gr./CN=bo-ca
+                serial:C0:B7:6B:53:75:C3:DF:54
+
+            X509v3 Subject Alternative Name: 
+                DNS:bo-dev, DNS:*.bo-dev
+            X509v3 Extended Key Usage: critical
+                Time Stamping, TLS Web Server Authentication, TLS Web Client Authentication, Code Signing
+    Signature Algorithm: sha256WithRSAEncryption
+         50:90:56:9b:11:4c:fd:da:ff:87:68:49:d2:32:f9:b9:41:a2:
+         97:6b:8b:da:99:6c:a9:6a:76:74:c1:7e:e8:49:de:d0:86:02:
+         cd:5d:3d:9c:86:39:59:b2:d4:bb:fc:a8:00:b0:d5:ba:30:61:
+         8f:fd:ba:ec:2d:a1:b4:ec:a4:bf:3f:cf:b0:f2:51:98:6e:e7:
+         17:f9:f2:21:6e:84:fb:da:a7:7a:35:ab:ed:93:61:67:a0:a9:
+         90:ec:1f:2a:d4:3d:c5:6c:56:4c:ca:b0:c4:b6:bc:bb:2a:62:
+         d4:ba:bd:64:c5:57:bc:2e:b5:75:6b:2a:6b:ca:79:5d:73:ab:
+         66:ba:fb:32:91:60:e3:cb:85:be:e4:e6:ba:e4:e3:49:59:8c:
+         44:ad:25:58:81:61:4b:c9:01:b5:e7:8c:42:8d:2b:97:5c:6b:
+         d4:cd:80:48:87:61:61:13:4a:a1:e8:73:81:ad:30:b1:15:f5:
+         5b:c0:09:8c:33:a3:1b:5e:38:1f:18:44:42:59:10:c4:81:b8:
+         e4:bb:ac:8e:a7:24:1c:1f:03:2d:df:f9:a4:6c:03:a2:0e:a8:
+         39:31:8c:d6:a0:40:c2:b1:d3:73:1e:86:14:0c:b7:7d:dd:54:
+         1e:19:ea:0b:f9:da:cd:3b:3d:c7:b6:15:04:55:84:dc:7d:4b:
+         a7:21:08:98
+-----BEGIN CERTIFICATE-----
+MIIEZTCCA02gAwIBAgIBATANBgkqhkiG9w0BAQsFADBkMQswCQYDVQQGEwJKUDEO
+MAwGA1UECAwFQ2hpYmExDjAMBgNVBAcMBUNoaWJhMRAwDgYDVQQKDAdibyBpbmMu
+MRMwEQYDVQQLDApPcmVvcmUgR3IuMQ4wDAYDVQQDDAViby1jYTAeFw0yMTExMzAx
+NDM4MDNaFw0yNDAyMjgxNDM4MDNaMFUxCzAJBgNVBAYTAkpQMQ4wDAYDVQQIDAVD
+aGliYTEQMA4GA1UECgwHYm8gaW5jLjETMBEGA1UECwwKT3Jlb3JlIEdyLjEPMA0G
+A1UEAwwGYm8tZGV2MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArX14
+1gN9Lc4OLKdZMFyb/pH2G3ZBwDEdHUYUWOuauwxz7BpmWI7PPTZO0+X0obJxhAcb
+FCyRqnTpKNwe7ZwExT745/qr5CMNnwhEJUlEvPIt6bGXXNryI1HhMKbNsmoyhkvu
+vaanHV6WRzZgp8C/fjQZR3lw7DK7SDXv8xZe9L3IMXcKxkxCJZQQv7gztFv81WXV
+BofMKkRPlLw1zpXaYllb/Ryrs+4oKmJMZehK3xz1lmWKrKB4mCzHZSkirqOHT/i2
+A3TdlPm0ETL/Ejavevn58ZYL+gyI6THc5Wlv0Pmty66raNArF2KS67cqIBiNG722
+Is0XFzkuSZd0wowjPwIDAQABo4IBLzCCASswCQYDVR0TBAIwADAsBglghkgBhvhC
+AQ0EHxYdT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFPDQ
+mON7lhr5XHQPF+icVjUT9r7gMH4GA1UdIwR3MHWhaKRmMGQxCzAJBgNVBAYTAkpQ
+MQ4wDAYDVQQIDAVDaGliYTEOMAwGA1UEBwwFQ2hpYmExEDAOBgNVBAoMB2JvIGlu
+Yy4xEzARBgNVBAsMCk9yZW9yZSBHci4xDjAMBgNVBAMMBWJvLWNhggkAwLdrU3XD
+31QwGwYDVR0RBBQwEoIGYm8tZGV2gggqLmJvLWRldjA0BgNVHSUBAf8EKjAoBggr
+BgEFBQcDCAYIKwYBBQUHAwEGCCsGAQUFBwMCBggrBgEFBQcDAzANBgkqhkiG9w0B
+AQsFAAOCAQEAUJBWmxFM/dr/h2hJ0jL5uUGil2uL2plsqWp2dMF+6Ene0IYCzV09
+nIY5WbLUu/yoALDVujBhj/267C2htOykvz/PsPJRmG7nF/nyIW6E+9qnejWr7ZNh
+Z6CpkOwfKtQ9xWxWTMqwxLa8uypi1Lq9ZMVXvC61dWsqa8p5XXOrZrr7MpFg48uF
+vuTmuuTjSVmMRK0lWIFhS8kBteeMQo0rl1xr1M2ASIdhYRNKoehzga0wsRX1W8AJ
+jDOjG144HxhEQlkQxIG45LusjqckHB8DLd/5pGwDog6oOTGM1qBAwrHTcx6GFAy3
+fd1UHhnqC/nazTs9x7YVBFWE3H1LpyEImA==
+-----END CERTIFICATE-----
