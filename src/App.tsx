@@ -1,7 +1,8 @@
 import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 
 const App: React.FC = () => {
-  return <div>ぱんぱかぱーん</div>;
+  return <ChakraProvider>ぱんぱかぱーん</ChakraProvider>;
 };
 
 export { App };
