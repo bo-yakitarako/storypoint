@@ -3,6 +3,17 @@ import ReactDOM from 'react-dom';
 import { RecoilRoot } from 'recoil';
 import { App } from './components/App';
 
+type StorageKey = 'name' | 'user_id';
+declare global {
+  interface Storage {
+    name: string;
+    user_id: string;
+    getItem(key: StorageKey): string | null;
+    setItem(key: StorageKey, value: string): void;
+    removeItem(key: StorageKey): void;
+  }
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
