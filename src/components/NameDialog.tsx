@@ -6,6 +6,7 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
+  ModalCloseButton,
   ModalFooter,
   Button,
   FormLabel,
@@ -50,12 +51,13 @@ const NameDialog: React.FC = () => {
       isOpen={isOpen}
       onClose={handleClose}
       isCentered
-      closeOnEsc={false}
+      closeOnEsc={name !== null}
       closeOnOverlayClick={false}
     >
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>名前ェ😇</ModalHeader>
+        {name !== null && <ModalCloseButton />}
         <form onSubmit={handleSubmit(onSubmit)}>
           <ModalBody>
             <FormLabel>名前を決めマッチョᕦ(ò_óˇ)ᕤ</FormLabel>
