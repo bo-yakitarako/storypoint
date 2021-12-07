@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, ChakraProvider, Flex, Image } from '@chakra-ui/react';
 import { NameDialog } from './NameDialog';
-import { Form } from './Form';
+import { TaskScreen } from './TaskScreen';
 import { NameBalloon } from './NameBalloon';
 
 const App: React.FC = () => {
@@ -15,7 +15,7 @@ const App: React.FC = () => {
         minHeight="100vh"
       >
         <Box>
-          <Form />
+          <TaskScreen />
         </Box>
       </Flex>
       <NameBalloon />
