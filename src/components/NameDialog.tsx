@@ -72,8 +72,12 @@ const NameDialog: React.FC = () => {
             )}
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="blue" type="submit">
-              君に決めた！
+            <Button
+              colorScheme="blue"
+              type="submit"
+              disabled={errors.name !== undefined}
+            >
+              {errors.name === undefined ? '君に決めた！' : '一体誰なんだ...'}
             </Button>
           </ModalFooter>
         </form>
