@@ -1,4 +1,4 @@
-import { atom, selector } from 'recoil';
+import { atom } from 'recoil';
 
 export const nameDialogOpenState = atom({
   key: 'nameDialogOpenState',
@@ -10,13 +10,13 @@ export const nameState = atom<string | null>({
   default: localStorage.name ?? null,
 });
 
-export const nameDisplaySelector = selector({
-  key: 'nameDisplaySelector',
-  get: ({ get }) => {
-    const name = get(nameState);
-    return name !== null ? `${name}くん` : '';
-  },
-});
+// export const nameDisplaySelector = selector({
+//   key: 'nameDisplaySelector',
+//   get: ({ get }) => {
+//     const name = get(nameState);
+//     return name !== null ? `${name}くん` : '';
+//   },
+// });
 
 export const jiraLinkState = atom<string | null>({
   key: 'jiraLinkState',

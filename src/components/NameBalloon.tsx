@@ -1,10 +1,11 @@
 import React from 'react';
-import { Box } from '@chakra-ui/react';
-import { useRecoilValue } from 'recoil';
-import { nameDisplaySelector } from '../modules/store';
+import { Box, Button } from '@chakra-ui/react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { nameDialogOpenState, nameState } from '../modules/store';
 
 const NameBalloon: React.FC = () => {
-  const name = useRecoilValue(nameDisplaySelector);
+  const setNameDialogOpen = useSetRecoilState(nameDialogOpenState);
+  const name = useRecoilValue(nameState);
   return (
     <Box
       position="fixed"
@@ -14,7 +15,6 @@ const NameBalloon: React.FC = () => {
       bottom="32px"
       right="420px"
       borderRadius="8px"
-      zIndex={-1}
       _after={{
         content: '""',
         position: 'absolute',
@@ -28,7 +28,18 @@ const NameBalloon: React.FC = () => {
         borderLeftColor: 'blue.500',
       }}
     >
-      {name}やっほー
+      {name !== null && `${name}くん`}やっほー
+      {name !== null && (
+        <Box mt="8px">
+          <Button
+            colorScheme="green"
+            fontSize="sm"
+            onClick={() => setNameDialogOpen(true)}
+          >
+            名前変更
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 };
