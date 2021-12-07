@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import {
   Modal,
   ModalOverlay,
@@ -21,7 +21,7 @@ type Input = {
 
 const NameDialog: React.FC = () => {
   const [isOpen, setOpenState] = useRecoilState(nameDialogOpenState);
-  const setName = useSetRecoilState(nameState);
+  const [name, setName] = useRecoilState(nameState);
   const {
     handleSubmit,
     register,
@@ -30,9 +30,7 @@ const NameDialog: React.FC = () => {
     mode: 'onChange',
     criteriaMode: 'all',
     shouldFocusError: false,
-    defaultValues: {
-      name: localStorage.name ?? '',
-    },
+    defaultValues: { name: name ?? '' },
   });
   const handleClose = useCallback(() => setOpenState(false), []);
   const onSubmit: SubmitHandler<Input> = useCallback((data) => {
@@ -42,7 +40,7 @@ const NameDialog: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!localStorage.name) {
+    if (name === null) {
       setOpenState(true);
     }
   }, []);
