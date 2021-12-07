@@ -1,4 +1,7 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
+import { config } from 'dotenv';
+
+config();
 export default {
   mount: {
     public: { url: '/', static: true },
@@ -30,7 +33,7 @@ export default {
   },
   devOptions: {
     /* ... */
-    hmrPort: 443,
+    hmrPort: Number(process.env.HMR_PORT) || 3000,
   },
   buildOptions: {
     /* ... */

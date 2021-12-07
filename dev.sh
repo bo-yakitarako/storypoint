@@ -7,4 +7,4 @@ if [ ! -d $DIR ];then
   exit
 fi
 
-yarn snowpack dev
+yarn watch
