@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import {
   Modal,
   ModalOverlay,
@@ -13,7 +13,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { nameDialogOpenState } from '../modules/store';
+import { nameDialogOpenState, nameState } from '../modules/store';
 
 type Input = {
   name: string;
@@ -21,6 +21,7 @@ type Input = {
 
 const NameDialog: React.FC = () => {
   const [isOpen, setOpenState] = useRecoilState(nameDialogOpenState);
+  const setName = useSetRecoilState(nameState);
   const {
     handleSubmit,
     register,
@@ -36,6 +37,7 @@ const NameDialog: React.FC = () => {
   const handleClose = useCallback(() => setOpenState(false), []);
   const onSubmit: SubmitHandler<Input> = useCallback((data) => {
     localStorage.name = data.name;
+    setName(data.name);
     handleClose();
   }, []);
 

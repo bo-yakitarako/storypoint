@@ -1,8 +1,10 @@
 import React from 'react';
 import { Box } from '@chakra-ui/react';
+import { useRecoilValue } from 'recoil';
+import { nameDisplaySelector } from '../modules/store';
 
 const NameBalloon: React.FC = () => {
-  const name = localStorage.name ? `${localStorage.name}くん` : '';
+  const name = useRecoilValue(nameDisplaySelector);
   return (
     <Box
       position="fixed"
