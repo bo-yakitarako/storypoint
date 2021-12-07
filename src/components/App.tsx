@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, ChakraProvider, Flex, Image } from '@chakra-ui/react';
 import { NameDialog } from './NameDialog';
 import { Form } from './Form';
+import { NameBalloon } from './NameBalloon';
 
 const App: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const App: React.FC = () => {
           <Form />
         </Box>
       </Flex>
+      <NameBalloon />
       <Image
         alt="かわいいかわいいGopherくんかわいいねえかわいいよ"
         src="/images/gopher.png"
