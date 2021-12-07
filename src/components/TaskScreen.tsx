@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { Flex, Heading, Link, Button } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
-import { jiraLinkState } from '../modules/store';
+import { jiraLinkDialogOpenState, jiraLinkState } from '../modules/store';
 
 const TaskScreen: React.FC = () => {
   const jiraLink = useRecoilValue(jiraLinkState);
+  const setOpen = useSetRecoilState(jiraLinkDialogOpenState);
   const linkText = useMemo(() => {
     if (jiraLink === null) {
       return 'SW-XXXX';
@@ -24,8 +25,8 @@ const TaskScreen: React.FC = () => {
           </Link>
         )}
       </Heading>
-      <Button colorScheme="green" ml="16px">
-        別のタスクに変更
+      <Button colorScheme="green" ml="16px" onClick={() => setOpen(true)}>
+        {jiraLink !== null ? '別のタスクに変更' : 'タスクを設定'}
       </Button>
     </Flex>
   );

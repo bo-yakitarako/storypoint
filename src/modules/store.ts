@@ -18,7 +18,12 @@ export const nameState = atom<string | null>({
 //   },
 // });
 
+export const jiraLinkDialogOpenState = atom({
+  key: 'jiraLinkDialogOpenState',
+  default: false,
+});
+
 export const jiraLinkState = atom<string | null>({
   key: 'jiraLinkState',
-  default: 'https://autoscale.atlassian.net/browse/SW-552',
+  default: null,
 });
