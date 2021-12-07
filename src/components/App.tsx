@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, ChakraProvider, Flex, Image } from '@chakra-ui/react';
-import { NameDialog } from './NameDialog';
+import { NameDialog } from './dialog/NameDialog';
 import { TaskScreen } from './TaskScreen';
 import { NameBalloon } from './NameBalloon';
 

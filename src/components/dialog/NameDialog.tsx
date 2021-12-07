@@ -14,7 +14,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { nameDialogOpenState, nameState } from '../modules/store';
+import { nameDialogOpenState, nameState } from '../../modules/store';
 
 type Input = {
   name: string;
