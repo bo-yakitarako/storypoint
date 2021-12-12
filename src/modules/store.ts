@@ -54,3 +54,8 @@ export const finishDialogOpenState = atom({
   key: 'finishDialogOpenState',
   default: false,
 });
+
+export const fetchingState = atom({
+  key: 'fetchingState',
+  default: false,
+});

@@ -6,6 +6,7 @@ import {
   planningUsersState,
   PlanningUser,
   userCountState,
+  fetchingState,
 } from '../modules/store';
 
 const db = getDatabase();
@@ -17,7 +18,17 @@ export const useListening = () => {
   const setTaskUrlState = useSetRecoilState(jiraLinkState);
   const setUsersState = useSetRecoilState(planningUsersState);
   const setUserCount = useSetRecoilState(userCountState);
+  const setFetchingState = useSetRecoilState(fetchingState);
   useEffect(() => {
+    onValue(
+      userRef,
+      () => {
+        setFetchingState(true);
+      },
+      {
+        onlyOnce: true,
+      },
+    );
     onValue(taskRef, (spapshot) => {
       setTaskUrlState(spapshot.val());
     });

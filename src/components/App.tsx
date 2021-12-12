@@ -1,26 +1,18 @@
 import React from 'react';
-import { Box, ChakraProvider, Flex, Image, Button } from '@chakra-ui/react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { ChakraProvider, Flex, Image, Spinner } from '@chakra-ui/react';
+import { useRecoilValue } from 'recoil';
 import '../modules/firebase';
 import { NameDialog } from './dialog/NameDialog';
-import { TaskScreen } from './main/TaskScreen';
 import { NameBalloon } from './NameBalloon';
 import { TaskDialog } from './dialog/TaskDialog';
-import { StoryPointSetting } from './main/StoryPointSetting';
-import { InfoTable } from './main/InfoTable';
 import { useListening } from '../hooks/useListening';
-import {
-  finishDialogOpenState,
-  includeInPlanningUsersSelector,
-} from '../modules/store';
-import { useRegistry } from '../hooks/useRegistry';
+import { fetchingState } from '../modules/store';
 import { FinishAlert } from './dialog/FinishAlert';
+import { Main } from './main/Main';
 
 const App: React.FC = () => {
   useListening();
-  const includingInUsers = useRecoilValue(includeInPlanningUsersSelector);
-  const setFinishDialogOpen = useSetRecoilState(finishDialogOpenState);
-  const { register } = useRegistry();
+  const isFetched = useRecoilValue(fetchingState);
   return (
     <ChakraProvider>
       <NameDialog />
@@ -33,27 +25,16 @@ const App: React.FC = () => {
         width="100%"
         minHeight="100vh"
       >
-        {includingInUsers ? (
-          <>
-            <Button
-              position="fixed"
-              right="16px"
-              top="16px"
-              colorScheme="red"
-              onClick={() => setFinishDialogOpen(true)}
-            >
-              解散
-            </Button>
-            <Box>
-              <TaskScreen />
-              <StoryPointSetting />
-            </Box>
-            <InfoTable />
-          </>
+        {isFetched ? (
+          <Main />
         ) : (
-          <Button colorScheme="green" onClick={() => register()}>
-            さんか
-          </Button>
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="blue.500"
+            size="xl"
+          />
         )}
       </Flex>
       <NameBalloon />
