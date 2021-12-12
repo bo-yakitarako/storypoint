@@ -10,14 +10,6 @@ export const nameState = atom<string | null>({
   default: localStorage.name ?? null,
 });
 
-// export const nameDisplaySelector = selector({
-//   key: 'nameDisplaySelector',
-//   get: ({ get }) => {
-//     const name = get(nameState);
-//     return name !== null ? `${name}くん` : '';
-//   },
-// });
-
 export const jiraLinkDialogOpenState = atom({
   key: 'jiraLinkDialogOpenState',
   default: false,
@@ -26,4 +18,15 @@ export const jiraLinkDialogOpenState = atom({
 export const jiraLinkState = atom<string | null>({
   key: 'jiraLinkState',
   default: null,
+});
+
+type PlanningUser = {
+  userId: number;
+  name: string;
+  storyPoint: string | null;
+};
+
+export const planningUsersState = atom({
+  key: 'planningUsersState',
+  default: [] as PlanningUser[],
 });

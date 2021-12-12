@@ -5,6 +5,7 @@ import { TaskScreen } from './main/TaskScreen';
 import { NameBalloon } from './NameBalloon';
 import { TaskDialog } from './dialog/TaskDialog';
 import { StoryPointSetting } from './main/StoryPointSetting';
+import { InfoTable } from './main/InfoTable';
 
 const App: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const App: React.FC = () => {
       <NameDialog />
       <TaskDialog />
       <Flex
+        flexDirection="column"
         justifyContent="center"
         alignItems="center"
         width="100%"
@@ -21,6 +23,7 @@ const App: React.FC = () => {
           <TaskScreen />
           <StoryPointSetting />
         </Box>
+        <InfoTable />
       </Flex>
       <NameBalloon />
       <Image
