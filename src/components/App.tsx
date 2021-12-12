@@ -10,12 +10,12 @@ import { StoryPointSetting } from './main/StoryPointSetting';
 import { InfoTable } from './main/InfoTable';
 import { useListening } from '../hooks/useListening';
 import { includeInPlanningUsersSelector } from '../modules/store';
-import { useUser } from '../hooks/useUser';
+import { useRegistry } from '../hooks/useRegistry';
 
 const App: React.FC = () => {
   useListening();
   const includingInUsers = useRecoilValue(includeInPlanningUsersSelector);
-  const { register } = useUser();
+  const { register } = useRegistry();
   return (
     <ChakraProvider>
       <NameDialog />
