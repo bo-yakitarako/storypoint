@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { Flex, Heading, Link, Button } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
-import { jiraLinkDialogOpenState, jiraLinkState } from '../modules/store';
+import { jiraLinkDialogOpenState, jiraLinkState } from '../../modules/store';
 
 const TaskScreen: React.FC = () => {
   const jiraLink = useRecoilValue(jiraLinkState);
