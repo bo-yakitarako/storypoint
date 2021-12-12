@@ -4,6 +4,7 @@ import { NameDialog } from './dialog/NameDialog';
 import { TaskScreen } from './main/TaskScreen';
 import { NameBalloon } from './NameBalloon';
 import { TaskDialog } from './dialog/TaskDialog';
+import { StoryPointSetting } from './main/StoryPointSetting';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
       >
         <Box>
           <TaskScreen />
+          <StoryPointSetting />
         </Box>
       </Flex>
       <NameBalloon />
