@@ -16,7 +16,7 @@ const InfoTable: React.FC = () => {
   const users = useRecoilValue(planningUsersState);
   const names = users.map((user) => user.name);
   const points = users.map((user) => user.storyPoint);
-  const canDisplay = points.every((point) => point !== null);
+  const canDisplay = points.every((point) => point !== '-');
   return (
     <Container
       padding={3}
