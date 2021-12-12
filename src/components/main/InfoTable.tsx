@@ -10,10 +10,12 @@ import {
   TableCaption,
 } from '@chakra-ui/react';
 import { useRecoilValue } from 'recoil';
-import { planningUsersState } from '../../modules/store';
+import { planningUsersState, userIdState } from '../../modules/store';
 
 const InfoTable: React.FC = () => {
+  const userId = useRecoilValue(userIdState);
   const users = useRecoilValue(planningUsersState);
+  const userIndex = users.findIndex((user) => user.userId === userId);
   const names = users.map((user) => user.name);
   const points = users.map((user) => user.storyPoint);
   const canDisplay = points.every((point) => point !== '-');
@@ -29,8 +31,13 @@ const InfoTable: React.FC = () => {
         <TableCaption>全員設定し終わったら表示されるよ</TableCaption>
         <Thead>
           <Tr>
-            {names.map((name) => (
-              <Th key={name}>{name}</Th>
+            {names.map((name, index) => (
+              <Th
+                key={name}
+                color={index === userIndex ? 'green.400' : undefined}
+              >
+                {name}
+              </Th>
             ))}
           </Tr>
         </Thead>
