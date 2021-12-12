@@ -18,11 +18,10 @@ const STORY_POINTS = [
 ];
 
 const StoryPointSetting: React.FC = () => {
-  const [storyPoint, setStoryPoint] = React.useState<string | null>(null);
+  const [, setStoryPoint] = React.useState<string | null>(null);
   const onChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
     setStoryPoint(e.target.value || null);
   }, []);
-  console.log(storyPoint);
   return (
     <Flex my={4} justifyContent="space-between">
       <Select placeholder="ポイント選ぼ" width="240px" onChange={onChange}>
