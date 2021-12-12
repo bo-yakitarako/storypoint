@@ -1,4 +1,5 @@
 import { initializeApp, FirebaseOptions } from 'firebase/app';
+import { getDatabase, ref, set } from 'firebase/database';
 
 const firebaseConfig: FirebaseOptions = {
   apiKey: 'AIzaSyBRuHupfRuXyDKj9NGRV9vZeNUHtaTynJE',
@@ -12,3 +13,8 @@ const firebaseConfig: FirebaseOptions = {
 };
 
 export const firebase = initializeApp(firebaseConfig);
+
+const db = getDatabase();
+export function setDB<Value>(key: string, value: Value) {
+  set(ref(db, key), value);
+}

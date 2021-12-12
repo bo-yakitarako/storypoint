@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import {
   Modal,
   ModalOverlay,
@@ -14,7 +14,13 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { nameDialogOpenState, nameState } from '../../modules/store';
+import {
+  includeInPlanningUsersSelector,
+  nameDialogOpenState,
+  nameState,
+  userIdState,
+} from '../../modules/store';
+import { setDB } from '../../modules/firebase';
 
 type Input = {
   name: string;
@@ -23,6 +29,8 @@ type Input = {
 const NameDialog: React.FC = () => {
   const [isOpen, setOpenState] = useRecoilState(nameDialogOpenState);
   const [name, setName] = useRecoilState(nameState);
+  const userId = useRecoilValue(userIdState);
+  const isInUsers = useRecoilValue(includeInPlanningUsersSelector);
   const {
     handleSubmit,
     register,
@@ -34,11 +42,17 @@ const NameDialog: React.FC = () => {
     defaultValues: { name: name ?? '' },
   });
   const handleClose = useCallback(() => setOpenState(false), []);
-  const onSubmit: SubmitHandler<Input> = useCallback((data) => {
-    localStorage.name = data.name;
-    setName(data.name);
-    handleClose();
-  }, []);
+  const onSubmit: SubmitHandler<Input> = useCallback(
+    (data) => {
+      localStorage.name = data.name;
+      setName(data.name);
+      if (isInUsers) {
+        setDB(`users/${userId}/name`, data.name);
+      }
+      handleClose();
+    },
+    [userId, isInUsers],
+  );
 
   useEffect(() => {
     if (name === null) {
