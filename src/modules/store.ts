@@ -49,3 +49,8 @@ export const userCountState = atom({
   key: 'userCountState',
   default: 0,
 });
+
+export const finishDialogOpenState = atom({
+  key: 'finishDialogOpenState',
+  default: false,
+});

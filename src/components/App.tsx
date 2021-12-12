@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, ChakraProvider, Flex, Image, Button } from '@chakra-ui/react';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import '../modules/firebase';
 import { NameDialog } from './dialog/NameDialog';
 import { TaskScreen } from './main/TaskScreen';
@@ -9,17 +9,23 @@ import { TaskDialog } from './dialog/TaskDialog';
 import { StoryPointSetting } from './main/StoryPointSetting';
 import { InfoTable } from './main/InfoTable';
 import { useListening } from '../hooks/useListening';
-import { includeInPlanningUsersSelector } from '../modules/store';
+import {
+  finishDialogOpenState,
+  includeInPlanningUsersSelector,
+} from '../modules/store';
 import { useRegistry } from '../hooks/useRegistry';
+import { FinishAlert } from './dialog/FinishAlert';
 
 const App: React.FC = () => {
   useListening();
   const includingInUsers = useRecoilValue(includeInPlanningUsersSelector);
+  const setFinishDialogOpen = useSetRecoilState(finishDialogOpenState);
   const { register } = useRegistry();
   return (
     <ChakraProvider>
       <NameDialog />
       <TaskDialog />
+      <FinishAlert />
       <Flex
         flexDirection="column"
         justifyContent="center"
@@ -29,6 +35,15 @@ const App: React.FC = () => {
       >
         {includingInUsers ? (
           <>
+            <Button
+              position="fixed"
+              right="16px"
+              top="16px"
+              colorScheme="red"
+              onClick={() => setFinishDialogOpen(true)}
+            >
+              解散
+            </Button>
             <Box>
               <TaskScreen />
               <StoryPointSetting />
