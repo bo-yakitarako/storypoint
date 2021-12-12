@@ -26,7 +26,7 @@ const TaskScreen: React.FC = () => {
         )}
       </Heading>
       <Button colorScheme="green" ml="16px" onClick={() => setOpen(true)}>
-        {jiraLink !== null ? '別のタスクに変更' : 'タスクを設定'}
+        {jiraLink !== null ? 'タスク変更' : 'タスク設定'}
       </Button>
     </Flex>
   );

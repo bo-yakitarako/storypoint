@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import {
   Modal,
   ModalOverlay,
@@ -14,7 +14,12 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { jiraLinkDialogOpenState, jiraLinkState } from '../../modules/store';
+import {
+  jiraLinkDialogOpenState,
+  jiraLinkState,
+  planningUsersState,
+} from '../../modules/store';
+import { setDB } from '../../modules/firebase';
 
 type Input = {
   link: string;
@@ -23,6 +28,7 @@ type Input = {
 const TaskDialog: React.FC = () => {
   const [isOpen, setOpenState] = useRecoilState(jiraLinkDialogOpenState);
   const [linkState, setLink] = useRecoilState(jiraLinkState);
+  const users = useRecoilValue(planningUsersState);
   const {
     handleSubmit,
     register,
@@ -34,10 +40,18 @@ const TaskDialog: React.FC = () => {
     defaultValues: { link: linkState ?? '' },
   });
   const handleClose = useCallback(() => setOpenState(false), []);
-  const onSubmit: SubmitHandler<Input> = useCallback((data) => {
-    setLink(data.link);
-    handleClose();
-  }, []);
+  const onSubmit: SubmitHandler<Input> = useCallback(
+    (data) => {
+      setLink(data.link);
+      setDB('taskUrl', data.link);
+      setDB(
+        'users',
+        users.map((user) => ({ ...user, storyPoint: '-' })),
+      );
+      handleClose();
+    },
+    [users],
+  );
 
   return (
     <Modal
