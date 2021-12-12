@@ -36,7 +36,7 @@ const App: React.FC = () => {
             <InfoTable />
           </>
         ) : (
-          <Button colorScheme="green" onClick={register}>
+          <Button colorScheme="green" onClick={() => register()}>
             さんか
           </Button>
         )}
