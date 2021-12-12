@@ -7,8 +7,10 @@ import { NameBalloon } from './NameBalloon';
 import { TaskDialog } from './dialog/TaskDialog';
 import { StoryPointSetting } from './main/StoryPointSetting';
 import { InfoTable } from './main/InfoTable';
+import { useListening } from '../hooks/useListening';
 
 const App: React.FC = () => {
+  useListening();
   return (
     <ChakraProvider>
       <NameDialog />

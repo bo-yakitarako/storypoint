@@ -20,7 +20,7 @@ export const jiraLinkState = atom<string | null>({
   default: null,
 });
 
-type PlanningUser = {
+export type PlanningUser = {
   userId: number;
   name: string;
   storyPoint: string | null;
@@ -29,4 +29,9 @@ type PlanningUser = {
 export const planningUsersState = atom({
   key: 'planningUsersState',
   default: [] as PlanningUser[],
+});
+
+export const userCountState = atom({
+  key: 'userCountState',
+  default: 0,
 });
