@@ -33,9 +33,7 @@ const FinishAlert: React.FC = () => {
         <AlertDialogHeader fontSize="lg" fontWeight="bold">
           解散しましょ
         </AlertDialogHeader>
-
         <AlertDialogBody>プランニングつかれた〜もうやめない？</AlertDialogBody>
-
         <AlertDialogFooter>
           <Button onClick={onClose}>まだやめない</Button>
           <Button colorScheme="red" ml={3} onClick={finish}>
