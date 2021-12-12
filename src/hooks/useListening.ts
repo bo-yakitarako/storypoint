@@ -22,8 +22,8 @@ export const useListening = () => {
       setTaskUrlState(spapshot.val());
     });
     onValue(userRef, (snapshot) => {
-      const dbUsers: PlanningUser[] | null = snapshot.val();
-      const users = dbUsers?.filter((user) => user !== null) ?? [];
+      const dbUsers: PlanningUser[] = Object.values(snapshot.val() ?? {});
+      const users = dbUsers.filter((user) => user !== null);
       setUsersState(users);
     });
     onValue(userCountRef, (snapshot) => {

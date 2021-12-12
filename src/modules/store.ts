@@ -1,4 +1,9 @@
-import { atom } from 'recoil';
+import { atom, selector } from 'recoil';
+
+export const userIdState = atom({
+  key: 'userIdState',
+  default: Number(localStorage.userId || 0),
+});
 
 export const nameDialogOpenState = atom({
   key: 'nameDialogOpenState',
@@ -29,6 +34,15 @@ export type PlanningUser = {
 export const planningUsersState = atom({
   key: 'planningUsersState',
   default: [] as PlanningUser[],
+});
+
+export const includeInPlanningUsersSelector = selector({
+  key: 'includeInPlanningUsersSelector',
+  get: ({ get }) => {
+    const userId = get(userIdState);
+    const users = get(planningUsersState);
+    return users.some((user) => user.userId === userId);
+  },
 });
 
 export const userCountState = atom({

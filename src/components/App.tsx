@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, ChakraProvider, Flex, Image } from '@chakra-ui/react';
+import { Box, ChakraProvider, Flex, Image, Button } from '@chakra-ui/react';
+import { useRecoilValue } from 'recoil';
 import '../modules/firebase';
 import { NameDialog } from './dialog/NameDialog';
 import { TaskScreen } from './main/TaskScreen';
@@ -8,9 +9,13 @@ import { TaskDialog } from './dialog/TaskDialog';
 import { StoryPointSetting } from './main/StoryPointSetting';
 import { InfoTable } from './main/InfoTable';
 import { useListening } from '../hooks/useListening';
+import { includeInPlanningUsersSelector } from '../modules/store';
+import { useUser } from '../hooks/useUser';
 
 const App: React.FC = () => {
   useListening();
+  const includingInUsers = useRecoilValue(includeInPlanningUsersSelector);
+  const { register } = useUser();
   return (
     <ChakraProvider>
       <NameDialog />
@@ -22,11 +27,19 @@ const App: React.FC = () => {
         width="100%"
         minHeight="100vh"
       >
-        <Box>
-          <TaskScreen />
-          <StoryPointSetting />
-        </Box>
-        <InfoTable />
+        {includingInUsers ? (
+          <>
+            <Box>
+              <TaskScreen />
+              <StoryPointSetting />
+            </Box>
+            <InfoTable />
+          </>
+        ) : (
+          <Button colorScheme="green" onClick={register}>
+            さんか
+          </Button>
+        )}
       </Flex>
       <NameBalloon />
       <Image

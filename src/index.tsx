@@ -7,7 +7,7 @@ type StorageKey = 'name' | 'user_id';
 declare global {
   interface Storage {
     name: string;
-    user_id: string;
+    userId: string;
     getItem(key: StorageKey): string | null;
     setItem(key: StorageKey, value: string): void;
     removeItem(key: StorageKey): void;
