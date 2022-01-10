@@ -33,6 +33,7 @@ const TaskDialog: React.FC = () => {
     handleSubmit,
     register,
     formState: { errors },
+    setValue,
   } = useForm<Input>({
     mode: 'onChange',
     criteriaMode: 'all',
@@ -48,6 +49,7 @@ const TaskDialog: React.FC = () => {
         setDB(`users/${userId}/storyPoint`, '-');
       });
       handleClose();
+      setValue('link', '');
     },
     [users],
   );
