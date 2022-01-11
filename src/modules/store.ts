@@ -59,3 +59,8 @@ export const fetchingState = atom({
   key: 'fetchingState',
   default: false,
 });
+
+export const removeAlertOpenState = atom({
+  key: 'removeAlertOpenState',
+  default: false,
+});

@@ -8,6 +8,7 @@ import { TaskDialog } from './dialog/TaskDialog';
 import { useListening } from '../hooks/useListening';
 import { fetchingState } from '../modules/store';
 import { FinishAlert } from './dialog/FinishAlert';
+import { RemoveAlert } from './dialog/RemoveAlert';
 import { Main } from './main/Main';
 
 const App: React.FC = () => {
@@ -18,6 +19,7 @@ const App: React.FC = () => {
       <NameDialog />
       <TaskDialog />
       <FinishAlert />
+      <RemoveAlert />
       <Flex
         flexDirection="column"
         justifyContent="center"
