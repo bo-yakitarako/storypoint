@@ -65,11 +65,15 @@ export const removeAlertOpenState = atom({
   default: false,
 });
 
+// useEffectで無駄に鳴らさないように、サウンドを鳴らすことができるフラグを立てる
+// そのフラグとなるbooleanのstate
+// ちなみにフラグが立つのは誰かがstorypointを投げたタイミングにしてる
 export const canSoundState = atom({
   key: 'canSoundState',
   default: false,
 });
 
+// 音を鳴らすかどうかの設定用、ユーザーが決めるやつね
 export const enableSoundState = atom({
   key: 'soundSettingState',
   default: JSON.parse(localStorage.enableSound ?? 'false') as boolean,
