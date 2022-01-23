@@ -4,6 +4,7 @@ import {
   canSoundState,
   enableSoundState,
   planningUsersState,
+  soundVolumeState,
 } from '../modules/store';
 
 const audioContext = new AudioContext();
@@ -12,17 +13,18 @@ export const useSound = () => {
   const [canSound, setCanSound] = useRecoilState(canSoundState);
   const users = useRecoilValue(planningUsersState);
   const enableSound = useRecoilValue(enableSoundState);
+  const soundVolume = useRecoilValue(soundVolumeState);
   useEffect(() => {
     if (
-      enableSound &&
-      canSound &&
       users.length > 0 &&
       users.every(({ storyPoint }) => storyPoint !== '-')
     ) {
-      playSound('/sounds/neruneru.mp3');
       setCanSound(false);
+      if (enableSound && canSound) {
+        playSound('/sounds/neruneru.mp3', soundVolume);
+      }
     }
-  }, [users, enableSound, canSound]);
+  }, [users, enableSound, canSound, soundVolume]);
 };
 
 const setupSound = async (resourcePath: string) => {
@@ -32,10 +34,13 @@ const setupSound = async (resourcePath: string) => {
   return audioBuffer;
 };
 
-const playSound = async (resourcePath: string) => {
+export const playSound = async (resourcePath: string, volume: number) => {
   const audioBuffer = await setupSound(resourcePath);
   const source = audioContext.createBufferSource();
   source.buffer = audioBuffer;
-  source.connect(audioContext.destination);
+  const gainNode = audioContext.createGain();
+  gainNode.gain.value = volume / 100;
+  gainNode.connect(audioContext.destination);
+  source.connect(gainNode).connect(audioContext.destination);
   source.start();
 };

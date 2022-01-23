@@ -72,5 +72,10 @@ export const canSoundState = atom({
 
 export const enableSoundState = atom({
   key: 'soundSettingState',
-  default: JSON.parse(localStorage.enableSound ?? 'false'),
+  default: JSON.parse(localStorage.enableSound ?? 'false') as boolean,
+});
+
+export const soundVolumeState = atom({
+  key: 'soundVolumeState',
+  default: JSON.parse(localStorage.soundVolume ?? '50') as number,
 });
