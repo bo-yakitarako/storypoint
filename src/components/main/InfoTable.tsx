@@ -19,6 +19,12 @@ const InfoTable: React.FC = () => {
   const names = users.map((user) => user.name);
   const points = users.map((user) => user.storyPoint);
   const canDisplay = points.every((point) => point !== '-');
+  const displayPoints = points.map((point) => {
+    if (point === '-') {
+      return '-';
+    }
+    return canDisplay ? point : '🙆‍♂️';
+  });
   return (
     <Container
       padding={3}
@@ -43,8 +49,8 @@ const InfoTable: React.FC = () => {
         </Thead>
         <Tbody>
           <Tr>
-            {points.map((point, index) => (
-              <Td key={index}>{canDisplay ? point : '-'}</Td>
+            {displayPoints.map((point, index) => (
+              <Td key={index}>{point}</Td>
             ))}
           </Tr>
         </Tbody>
