@@ -8,6 +8,7 @@ declare global {
   interface Storage {
     name: string;
     userId: string;
+    enableSound: string;
     getItem(key: StorageKey): string | null;
     setItem(key: StorageKey, value: string): void;
     removeItem(key: StorageKey): void;
