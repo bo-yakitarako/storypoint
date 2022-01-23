@@ -20,7 +20,7 @@ const RemoveAlert: React.FC = () => {
   const finish = useCallback(() => {
     setDB(`users/${userId}`, null);
     onClose();
-  }, []);
+  }, [userId]);
   return (
     <AlertDialog
       isOpen={isOpen}
