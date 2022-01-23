@@ -10,9 +10,11 @@ import { fetchingState } from '../modules/store';
 import { FinishAlert } from './dialog/FinishAlert';
 import { RemoveAlert } from './dialog/RemoveAlert';
 import { Main } from './main/Main';
+import { useSound } from '../hooks/useSound';
 
 const App: React.FC = () => {
   useListening();
+  useSound();
   const isFetched = useRecoilValue(fetchingState);
   return (
     <ChakraProvider>

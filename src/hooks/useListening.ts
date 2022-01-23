@@ -7,6 +7,7 @@ import {
   PlanningUser,
   userCountState,
   fetchingState,
+  canSoundState,
 } from '../modules/store';
 
 const db = getDatabase();
@@ -19,6 +20,7 @@ export const useListening = () => {
   const setUsersState = useSetRecoilState(planningUsersState);
   const setUserCount = useSetRecoilState(userCountState);
   const setFetchingState = useSetRecoilState(fetchingState);
+  const setCanSound = useSetRecoilState(canSoundState);
   useEffect(() => {
     onValue(
       userRef,
@@ -36,6 +38,12 @@ export const useListening = () => {
       const dbUsers: PlanningUser[] = Object.values(snapshot.val() ?? {});
       const users = dbUsers.filter((user) => user !== null);
       setUsersState(users);
+      const validUserCount = users.filter(
+        (user) => user.storyPoint !== '-',
+      ).length;
+      if (validUserCount > 0 && validUserCount < users.length) {
+        setCanSound(true);
+      }
     });
     onValue(userCountRef, (snapshot) => {
       setUserCount(snapshot.val());

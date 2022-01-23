@@ -64,3 +64,8 @@ export const removeAlertOpenState = atom({
   key: 'removeAlertOpenState',
   default: false,
 });
+
+export const canSoundState = atom({
+  key: 'canSoundState',
+  default: false,
+});
