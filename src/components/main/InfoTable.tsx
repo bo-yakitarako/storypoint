@@ -32,8 +32,11 @@ const InfoTable: React.FC = () => {
       borderWidth={1}
       borderRadius="12px"
       backgroundColor="white"
+      width="auto"
+      maxWidth="none"
+      minWidth="540px"
     >
-      <Table variant="simple" maxWidth="640px" overflowX="auto">
+      <Table variant="simple" overflowX="auto">
         <TableCaption>全員設定し終わったら表示されるよ</TableCaption>
         <Thead>
           <Tr>
