@@ -29,6 +29,7 @@ export type PlanningUser = {
   userId: number;
   name: string;
   storyPoint: string | null;
+  performer: boolean;
 };
 
 export const planningUsersState = atom({

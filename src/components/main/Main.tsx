@@ -7,6 +7,7 @@ import { TaskScreen } from './TaskScreen';
 import { StoryPointSetting } from './StoryPointSetting';
 import { InfoTable } from './InfoTable';
 import { Options } from './Options';
+import { PerformButton } from './PerformButton';
 
 const Main: React.FC = () => {
   const includingInUsers = useRecoilValue(includeInPlanningUsersSelector);
@@ -24,6 +25,7 @@ const Main: React.FC = () => {
       <Box>
         <TaskScreen />
         <StoryPointSetting />
+        <PerformButton />
       </Box>
       <InfoTable />
     </>

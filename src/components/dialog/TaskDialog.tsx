@@ -47,6 +47,7 @@ const TaskDialog: React.FC = () => {
       setDB('taskUrl', data.link);
       users.forEach(({ userId }) => {
         setDB(`users/${userId}/storyPoint`, '-');
+        setDB(`users/${userId}/performer`, false);
       });
       handleClose();
       setValue('link', '');

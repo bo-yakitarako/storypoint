@@ -8,6 +8,7 @@ import {
   Th,
   Td,
   TableCaption,
+  Box,
 } from '@chakra-ui/react';
 import { useRecoilValue } from 'recoil';
 import { planningUsersState, userIdState } from '../../modules/store';
@@ -53,7 +54,34 @@ const InfoTable: React.FC = () => {
         <Tbody>
           <Tr>
             {displayPoints.map((point, index) => (
-              <Td key={index}>{point}</Td>
+              <Td key={index} position="relative">
+                {users[index].performer && (
+                  <Box
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    position="absolute"
+                    width="40px"
+                    height="40px"
+                    fontSize="20px"
+                    bgColor="blue.100"
+                    borderRadius="50%"
+                    left="16px"
+                    bottom="-40px"
+                    _before={{
+                      content: '""',
+                      position: 'absolute',
+                      top: '-16px',
+                      border: '8px solid transparent',
+                      borderBottom: '16px solid blue',
+                      borderBottomColor: 'blue.100',
+                    }}
+                  >
+                    🙋‍♀️
+                  </Box>
+                )}
+                {point}
+              </Td>
             ))}
           </Tr>
         </Tbody>

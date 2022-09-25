@@ -1,7 +1,12 @@
 import { useCallback } from 'react';
 import { getDatabase, ref, set } from 'firebase/database';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { nameState, userCountState, userIdState } from '../modules/store';
+import {
+  nameState,
+  PlanningUser,
+  userCountState,
+  userIdState,
+} from '../modules/store';
 
 const db = getDatabase();
 
@@ -20,7 +25,8 @@ export const useRegistry = () => {
         userId,
         name,
         storyPoint: '-',
-      });
+        performer: false,
+      } as PlanningUser);
       set(ref(db, 'userCount'), userId);
       setUserId(userId);
       localStorage.userId = `${userId}`;
